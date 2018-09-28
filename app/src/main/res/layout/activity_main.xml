@@ -6,13 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <ImageButton
+        android:id="@+id/imgadd1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/addition_problems_type_1"
+        android:src="@drawable/imgadd1"
+        app:layout_constraintStart_toEndOf="@+id/spinneradd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_default" />
 
+    <ImageButton
+        android:id="@+id/imgadd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/addition_problems_type_2"
+        android:src="@drawable/imgadd2"
+        app:layout_constraintStart_toEndOf="@+id/imgadd1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgsub1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/subtraction_problems_type_1"
+        android:src="@drawable/imgsub1"
+        app:layout_constraintStart_toEndOf="@+id/spinnersub"
+        app:layout_constraintTop_toBottomOf="@+id/imgadd1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgsub2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/subtraction_problems_type_1"
+        android:src="@drawable/imgsub2"
+        app:layout_constraintStart_toEndOf="@+id/imgsub1"
+        app:layout_constraintTop_toTopOf="@+id/imgsub1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgmul1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/multiplication_problems_type_1"
+        android:src="@drawable/imgmul1"
+        app:layout_constraintStart_toEndOf="@+id/spinnermul"
+        app:layout_constraintTop_toBottomOf="@+id/imgsub1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgmul2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/multiplication_problems_type_2"
+        android:src="@drawable/imgmul2"
+        app:layout_constraintStart_toEndOf="@+id/imgmul1"
+        app:layout_constraintTop_toTopOf="@+id/imgmul1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgdiv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/division_problems_type_1"
+        android:src="@drawable/imgdiv1"
+        app:layout_constraintStart_toEndOf="@+id/spinnerdiv"
+        app:layout_constraintTop_toBottomOf="@+id/imgmul1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgdiv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/division_problems_type_2"
+        android:src="@drawable/imgdiv2"
+        app:layout_constraintStart_toEndOf="@+id/imgdiv1"
+        app:layout_constraintTop_toTopOf="@+id/imgdiv1"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <TextView
+        android:id="@+id/tvlabeladd"
+        style="@style/my_labelStyle1"
+        android:text="@string/tvlabeladd"
+        app:layout_constraintBottom_toTopOf="@+id/imgadd1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvlabelsub"
+        style="@style/my_labelStyle1"
+        android:text="@string/tvlabelsub"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toTopOf="@+id/imgsub1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvlabelmul"
+        style="@style/my_labelStyle1"
+        android:text="@string/tvlabelmul"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toTopOf="@+id/imgmul1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvlabeldiv"
+        style="@style/my_labelStyle1"
+        android:text="@string/tvlabeldiv"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toTopOf="@+id/imgdiv1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinneradd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Spinner>
+
+    <Spinner
+        android:id="@+id/spinnersub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinneradd"></Spinner>
+
+    <Spinner
+        android:id="@+id/spinnermul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnersub"></Spinner>
+
+    <Spinner
+        android:id="@+id/spinnerdiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnermul"></Spinner>
 </android.support.constraint.ConstraintLayout>

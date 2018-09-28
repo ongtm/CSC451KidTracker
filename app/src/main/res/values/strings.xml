@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">CSC451KidTracker</string>
+    <string name="addition_problems_type_1">Addition Problems Type 1</string>
+    <string name="addition_problems_type_2">Addition Problems Type 2</string>
+    <string name="subtraction_problems_type_1">Subtraction Problems Type 1</string>
+    <string name="subtraction_problems_type_2">Subtraction Problems Type 2</string>
+    <string name="multiplication_problems_type_1">Multiplication Problems Type 1</string>
+    <string name="multiplication_problems_type_2">Multiplication Problems Type 2</string>
+    <string name="division_problems_type_1">Division Problems Type 1</string>
+    <string name="division_problems_type_2">Division Problems Type 2</string>
+
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="oper">+</string>
+    <string name="result">3</string>
+    <string name="check_answer">Check Answer</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="get_hint">Get Hint</string>
+    <string name="tvlabeladd">Addition</string>
+    <string name="tvlabelsub">Subtraction</string>
+    <string name="tvlabelmul">Multiplication</string>
+    <string name="tvlabeldiv">Division</string>
+    <string name="tvcorrect">TextView</string>
+    <string name="tvtext1">OUT OF</string>
+    <string name="tvtotalpossible">TextView</string>
+
+    <string-array name="math_levels">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <item>Level 4</item>
+        <item>Level 5</item>
+    </string-array>
 </resources>
