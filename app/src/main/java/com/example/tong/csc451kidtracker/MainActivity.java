@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Assign Spinners objects by ID
         Spinner spinnerAdd = findViewById(R.id.spinneradd);
-        //Spinner spinnerSub = findViewById(R.id.spinnersub);
-        //Spinner spinnerMul = findViewById(R.id.spinnermul);
-        //Spinner spinnerDiv = findViewById(R.id.spinnerdiv);
+        Spinner spinnerSub = findViewById(R.id.spinnersub);
+        Spinner spinnerMul = findViewById(R.id.spinnermul);
+        Spinner spinnerDiv = findViewById(R.id.spinnerdiv);
 
         //Creating array to hold items for spinner
         ArrayList<Integer> mathLevels = new ArrayList<Integer>();
@@ -42,10 +42,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Set on Click listener for spinner
         spinnerAdd.setOnItemSelectedListener(this);
+        spinnerSub.setOnItemSelectedListener(this);
+        spinnerMul.setOnItemSelectedListener(this);
+        spinnerDiv.setOnItemSelectedListener(this);
 
         //attaching adapter to the spinner
         spinnerAdd.setAdapter(spinnerAdapter);
-
+        spinnerSub.setAdapter(spinnerAdapter);
+        spinnerMul.setAdapter(spinnerAdapter);
+        spinnerDiv.setAdapter(spinnerAdapter);
 
         //setting onClickListeners for each imagebutton on activity
         ImageButton add1 = findViewById(R.id.imgadd1);
