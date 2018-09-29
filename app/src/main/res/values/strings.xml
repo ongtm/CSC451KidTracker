@@ -23,6 +23,9 @@
     <string name="tvcorrect">TextView</string>
     <string name="tvtext1">OUT OF</string>
     <string name="tvtotalpossible">TextView</string>
+    <string name="tableft">Left</string>
+    <string name="tabcenter">Center</string>
+    <string name="tabright">Right</string>
 
     <string-array name="math_levels">
         <item>Level 1</item>

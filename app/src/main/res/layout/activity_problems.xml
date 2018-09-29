@@ -61,7 +61,6 @@
         style="@style/myButtonStyle"
         android:drawableStart="@drawable/ic_baseline_check_circle_24px"/>
 
-
     <Button
         android:id="@+id/bnt_get_hint"
         android:layout_marginStart="29dp"
@@ -69,7 +68,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         style="@style/myButtonStyle"
-        android:drawableStart="@drawable/ic_sharp_wb_incandescent_24px"/>
+        android:drawableStart="@drawable/ic_lightbulb_on"/>
 
     <TextView
         android:id="@+id/tvcorrect"
@@ -108,7 +107,7 @@
         android:layout_width="50dp"
         android:layout_height="300dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
