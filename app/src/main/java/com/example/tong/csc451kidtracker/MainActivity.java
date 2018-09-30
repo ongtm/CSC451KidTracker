@@ -1,10 +1,14 @@
 package com.example.tong.csc451kidtracker;
 
 import android.content.Intent;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         //Assign Spinners objects by ID
         Spinner spinnerAdd = findViewById(R.id.spinneradd);
@@ -72,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    /*@Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }*/
 
     //Item Selected Listener for Spinner
     @Override
@@ -129,4 +141,33 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(thisIntent);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater mInflator = getMenuInflater();
+        mInflator.inflate(R.menu.toolbar_menu,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int itemID = item.getItemId();
+
+        if(itemID==R.id.menu_home){
+            //navigate to home
+        }
+        else if(itemID == R.id.menu_scoreSummary){
+            //navigate to score summary
+            startActivity(new Intent(MainActivity.this,Summary.class));
+        }
+        else if (itemID == R.id.menu_about){
+            //navigate to about
+            Toast.makeText(this, "This menu item is not operational at this time", Toast.LENGTH_LONG).show();
+        }
+        else{
+            //No action
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 }
