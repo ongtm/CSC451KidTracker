@@ -18,11 +18,6 @@ public class ProblemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problems);
 
-        //Do I need this?
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //show back button on toolbar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         //This is to test the key/value pair coming over from the MainActivity
         String getVal = getIntent().getStringExtra("val1");
         TextView tv =(TextView) findViewById(R.id.tvcorrect);
@@ -33,7 +28,7 @@ public class ProblemsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater mInflator = getMenuInflater();
-        mInflator.inflate(R.menu.toolbar_menu,menu);
+        mInflator.inflate(R.menu.toolbar_menu_child,menu);
 
         return true;
     }
@@ -41,14 +36,14 @@ public class ProblemsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int itemID = item.getItemId();
 
-        if(itemID==R.id.menu_home){
+        if(itemID==R.id.menu_home_child){
             this.finish();
         }
-        else if(itemID == R.id.menu_scoreSummary){
+        else if(itemID == R.id.menu_scoreSummary_child){
             //navigate to score summary
             startActivity(new Intent(ProblemsActivity.this,Summary.class));
         }
-        else if (itemID == R.id.menu_about){
+        else if (itemID == R.id.menu_about_child){
             //navigate to about
             Toast.makeText(this, "This menu item is not operational at this time", Toast.LENGTH_LONG).show();
         }

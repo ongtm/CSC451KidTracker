@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 public class Summary extends AppCompatActivity {
 
@@ -17,19 +17,12 @@ public class Summary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
-        //show up button on toolbar
-        Toolbar childToolbar = findViewById(R.id.child_toolbar);
-        getSupportActionBar(childToolbar);
-        ActionBar childbar = getSupportActionBar();
-        childbar.setDisplayHomeAsUpEnabled(true);
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater mInflator = getMenuInflater();
-        mInflator.inflate(R.menu.toolbar_menu,menu);
+        mInflator.inflate(R.menu.toolbar_menu_child,menu);
 
         return true;
     }
@@ -37,11 +30,12 @@ public class Summary extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int itemID = item.getItemId();
 
-        if(itemID==R.id.menu_home){
+        if(itemID==R.id.menu_home_child){
             //navigate to home
             this.finish();
+
         }
-        else if (itemID == R.id.menu_about){
+        else if (itemID == R.id.menu_about_child){
             //navigate to about
             Toast.makeText(this, "This menu item is not operational at this time", Toast.LENGTH_LONG).show();
         }

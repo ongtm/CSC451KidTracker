@@ -1,6 +1,8 @@
 package com.example.tong.csc451kidtracker;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,18 +20,24 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.tong.csc451kidtracker.database.DBHelper;
+import com.example.tong.csc451kidtracker.database.DataSource;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
+
+    DataSource mDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        //Setting up database
+        mDataSource = new DataSource(this);
+        mDataSource.open();
 
         //Assign Spinners objects by ID
         Spinner spinnerAdd = findViewById(R.id.spinneradd);
@@ -49,10 +57,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,mathLevels);
 
         //Set on Click listener for spinner
-        spinnerAdd.setOnItemSelectedListener(this);
+/*        spinnerAdd.setOnItemSelectedListener(this);
         spinnerSub.setOnItemSelectedListener(this);
         spinnerMul.setOnItemSelectedListener(this);
-        spinnerDiv.setOnItemSelectedListener(this);
+        spinnerDiv.setOnItemSelectedListener(this);*/
 
         //attaching adapter to the spinner
         spinnerAdd.setAdapter(spinnerAdapter);
@@ -77,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             div1.setOnClickListener(this);
         ImageButton div2 = findViewById(R.id.imgdiv2);
             div2.setOnClickListener(this);
-
     }
 
     /*@Override
@@ -153,10 +160,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onOptionsItemSelected(MenuItem item){
         int itemID = item.getItemId();
 
-        if(itemID==R.id.menu_home){
-            //navigate to home
-        }
-        else if(itemID == R.id.menu_scoreSummary){
+        if(itemID == R.id.menu_scoreSummary){
             //navigate to score summary
             startActivity(new Intent(MainActivity.this,Summary.class));
         }
@@ -169,5 +173,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        mDataSource.close();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mDataSource.open();
     }
 }
