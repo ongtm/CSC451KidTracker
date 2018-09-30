@@ -25,5 +25,5 @@ public class DataSource {
         mDbHelper.close();
     }
 
-    
+
 }
