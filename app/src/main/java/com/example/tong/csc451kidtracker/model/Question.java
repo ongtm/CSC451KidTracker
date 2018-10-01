@@ -1,5 +1,9 @@
 package com.example.tong.csc451kidtracker.model;
 
+import android.content.ContentValues;
+
+import com.example.tong.csc451kidtracker.database.ItemsTable;
+
 import java.util.UUID;
 
 public class Question {
@@ -62,5 +66,30 @@ public class Question {
 
     public void setOper(String oper) {
         this.oper = oper;
+    }
+
+
+
+    public ContentValues toQValues(){
+        ContentValues qValues = new ContentValues(5);
+
+        qValues.put(ItemsTable.QUESTION_ID,questionId);
+        qValues.put(ItemsTable.QUESTION_NUM1, num1);
+        qValues.put(ItemsTable.QUESTION_NUM2, num2);
+        qValues.put(ItemsTable.QUESTION_OPER, oper);
+        qValues.put(ItemsTable.QUESTION_RESULT, result);
+
+        return qValues;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "questionId='" + questionId + '\'' +
+                ", num1=" + num1 +
+                ", num2=" + num2 +
+                ", result=" + result +
+                ", oper='" + oper + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,9 @@
 package com.example.tong.csc451kidtracker.model;
 
+import android.content.ContentValues;
+
+import com.example.tong.csc451kidtracker.database.ItemsTable;
+
 import java.util.UUID;
 
 public class Answer {
@@ -66,5 +70,28 @@ public class Answer {
 
     public void setTestId(String testId) {
         this.testId = testId;
+    }
+
+    public ContentValues toAValues(){
+        ContentValues aValues = new ContentValues(5);
+
+        aValues.put(ItemsTable.ANSWERS_ID, answerId);
+        aValues.put(ItemsTable.ANSWERS_ENTERED, answerEntered);
+        aValues.put(ItemsTable.ANSWERS_CORRECTINCORRECT, correctIncorrect);
+        aValues.put(ItemsTable.ANSWERS_TESTID, testId);
+        aValues.put(ItemsTable.ANSWERS_QUESTIONID, questionId);
+
+        return aValues;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "answerId='" + answerId + '\'' +
+                ", questionId='" + questionId + '\'' +
+                ", answerEntered=" + answerEntered +
+                ", correctIncorrect='" + correctIncorrect + '\'' +
+                ", testId='" + testId + '\'' +
+                '}';
     }
 }
