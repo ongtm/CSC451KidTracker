@@ -25,7 +25,7 @@ import android.widget.Toolbar;
 import com.example.tong.csc451kidtracker.database.DBHelper;
 import com.example.tong.csc451kidtracker.database.DataSource;
 import com.example.tong.csc451kidtracker.model.Question;
-import com.example.tong.csc451kidtracker.sample.SampleDataItems;
+//import com.example.tong.csc451kidtracker.sample.SampleDataItems;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,36 +35,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
     DataSource mDataSource;
-/************************************************Temp Code--move to ProblemsActivity?*/
-    //TextView tvOut;
-    List<Question> questionList = SampleDataItems.questionList;
-    List<String> questionId = new ArrayList<>();
-/************************************************Temp Code--move to ProblemsActivity?*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/************************************************Temp Code--move to ProblemsActivity?*/
-    //tvOut = findViewById(R.id.out);
-    //tvOut.setText("");
-
-     /*   Collections.sort(questionList, new Comparator<Question>() {
-            @Override
-            public int compare(Question o1, Question o2) {
-                return o1.getQuestionId().compareTo(o2.getQuestionId());
-            }
-        });*/
-    for(Question question : questionList){
-        //tvOut.append(question.getQuestionId() + "\n");
-        questionId.add(question.getQuestionId());
-    }
-    //Creates adapter
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-            this, android.R.layout.simple_list_item_1,questionId);
-    //Binds list to adapter
-    ListView listView = findViewById(R.id.sampleList);
-    listView.setAdapter(adapter);
-/************************************************Temp Code--move to ProblemsActivity?*/
 
         //Setting up database
         mDataSource = new DataSource(this);

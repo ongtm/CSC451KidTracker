@@ -15,20 +15,21 @@ public class Test {
     private int numQuestions;
     private int numCorrect;
     private int numIncorrect;
-    //private String testDate;
+    private String testDate;
     //No argument Constructor
     public Test(){
 
     }
 
     //Standard Constructor
-    public Test(String testId, int numQuestions, int numCorrect, int numIncorrect ){
+    public Test(String testId, int numQuestions, int numCorrect, int numIncorrect, String testDate ){
         if(testId == null){
             testId = UUID.randomUUID().toString();
-      //      testDate = new Date().toString();
+            testDate = new Date().toString();
         }
 
         this.testId = testId;
+        this.testDate = testDate;
         this.numQuestions = numQuestions;
         this.numCorrect = numCorrect;
         this.numIncorrect = numIncorrect;
@@ -67,6 +68,9 @@ public class Test {
         this.numIncorrect = numIncorrect;
     }
 
+    public void setTestDate(String testDate) {this.testDate = testDate;}
+
+    public String getTestDate(){return testDate;}
     public ContentValues toTValues(){
         ContentValues tValues = new ContentValues(4);
 

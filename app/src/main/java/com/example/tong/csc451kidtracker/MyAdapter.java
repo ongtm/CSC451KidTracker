@@ -4,39 +4,65 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.view.View;
+import com.example.tong.csc451kidtracker.model.Test;
+import java.util.List;
+import android.content.Context;
+
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private String[] mDataset;
+    private List<Test> mTest;
+    private Context mContext;
+
+    public MyAdapter(Context context, List<Test> test){
+        this.mContext = context;
+        this.mTest = test;
+    }
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        public TextView mTextView;
-        public MyViewHolder(TextView v){
-            super(v);
-            mTextView = v;
+        //public View mView;
+        public TextView testDate;
+        public TextView numQuestions;
+        public TextView numCorrect;
+        public TextView numIncorrect;
+
+        public MyViewHolder(View testView){
+            super(testView);
+            testDate = testView.findViewById(R.id.testDate);
+            numQuestions = testView.findViewById(R.id.numQuestions);
+            numCorrect = testView.findViewById(R.id.numCorrect);
+            numIncorrect = testView.findViewById(R.id.numIncorrect);
         }
     }
 
-    public MyAdapter(String[] myDataset){
-        mDataset = myDataset;
-    }
 
     //Creates new view, places it in a view holder and inflates it and returns the view holder
     @Override
     public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.list_summary,parent,false);
 
-        MyViewHolder vh = new MyViewHolder(v);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        return vh;
+        View testView = inflater.inflate(R.layout.activity_summary, parent, false);
+
+        MyViewHolder myViewHolder = new MyViewHolder(testView);
+
+        return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position){
-        holder.mTextView.setText(mDataset[position]);
+        Test myTest = mTest.get(position);
+
+            holder.testDate.setText(myTest.getTestDate());
+            holder.numQuestions.setText(myTest.getNumQuestions());
+            holder.numCorrect.setText(myTest.getNumCorrect());
+            holder.numIncorrect.setText(myTest.getNumIncorrect());
+
     }
 
     @Override
     public int getItemCount(){
-        return mDataset.length;
+        return mTest.size();
     }
 }

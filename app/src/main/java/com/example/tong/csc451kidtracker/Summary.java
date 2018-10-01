@@ -11,36 +11,40 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
+import java.util.List;
+import com.example.tong.csc451kidtracker.model.Test;
+
 
 public class Summary extends AppCompatActivity {
     //Recycler view objects
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String[] myDataset;
+
+
+    List<String> questionId = new java.util.ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+        setContentView(R.layout.list_summary);
+
+        MyAdapter adapter = new MyAdapter(this,)
 
         //Recycler View
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         //Setting for keeping layout size the same regardless of content
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
 
         //using linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        myDataset[0] = "A";
-        myDataset[1] = "B";
-        myDataset[2] = "C";
-        myDataset[3] = "D";
+        mAdapter = new MyAdapter(myDataset);
 
-        Toast.makeText(this, "I got this far!", Toast.LENGTH_SHORT).show();
-        //mAdapter = new MyAdapter(myDataset);
-        //mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
+
+
     }
 
     @Override
