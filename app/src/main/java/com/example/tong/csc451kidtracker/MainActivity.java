@@ -126,25 +126,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Setting Intention Extra
         switch (view.getId()){
             case R.id.imgadd1:
-                thisIntent.putExtra("val1","imgadd1" + levelSelected);
+                thisIntent.putExtra("val1","Addition_Level_" + levelSelected);
                 break;
      /*       case R.id.imgadd2:
                 thisIntent.putExtra("val1","imgadd2");
                 break;*/
             case R.id.imgsub1:
-                thisIntent.putExtra("val1","imgsub1" + levelSelected);
+                thisIntent.putExtra("val1","Subtraction_Level_" + levelSelected);
                 break;
             /*case R.id.imgsub2:
                 thisIntent.putExtra("val1","imgsub2");
                 break;*/
             case R.id.imgmul1:
-                thisIntent.putExtra("val1","imgmul1" + levelSelected);
+                thisIntent.putExtra("val1","Multiplication_Level_1" + levelSelected);
                 break;
             /*case R.id.imgmul2:
                 thisIntent.putExtra("val1","imgmul2");
                 break;*/
             case R.id.imgdiv1:
-                thisIntent.putExtra("val1","imgdiv1"+levelSelected);
+                thisIntent.putExtra("val1","Division_Level_"+levelSelected);
                 break;
             /*case R.id.imgdiv2:
                 thisIntent.putExtra("val1","imgdiv2");

@@ -32,7 +32,7 @@ public class ProblemsActivity extends AppCompatActivity {
         String getVal = getIntent().getStringExtra("val1");
         TextView tv =(TextView) findViewById(R.id.testtype);
         tv.setText(getVal);
-
+        Toast.makeText(this,"You are taking a test for " + getVal,Toast.LENGTH_LONG).show();
         //pull sqlite data here
 
         //hide tvCorrectAnswer
@@ -137,15 +137,17 @@ public class ProblemsActivity extends AppCompatActivity {
     }
 
     public void onClickHint(View view){
-        Toast.makeText(this,"Hints not available at this time",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"Hints not available at this time",Toast.LENGTH_LONG).show();
         ListView listViewHints;
         listViewHints = findViewById(R.id.hintlist);
 
-        if(hintsVisible = false){
+        if(hintsVisible == false){
             listViewHints.setVisibility(View.VISIBLE);
+            hintsVisible = true;
         }
         else{
             listViewHints.setVisibility(View.GONE);
+            hintsVisible = false;
         }
     }
 
