@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 import java.util.List;
@@ -81,4 +82,7 @@ public class Summary extends AppCompatActivity {
 
     }
 
+    public void onClickDeleteItem(View view){
+        Toast.makeText(this,"This action is not operational at this time",Toast.LENGTH_LONG).show();
+    }
 }

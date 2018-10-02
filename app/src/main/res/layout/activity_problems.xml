@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProblemsActivity">
+    tools:context=".ProblemsActivity"
+    android:background="@color/colorAccent2">
 
     <TextView
         android:id="@+id/tvnum1"
@@ -118,6 +119,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/tvnumcorrect"
         android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,6 +131,7 @@
         android:layout_marginTop="9dp"
         android:text="@string/tvtext1"
         android:textColor="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnumcorrect" />
 
@@ -140,6 +143,7 @@
         android:layout_marginTop="9dp"
         android:text="@string/tvtotalpossible"
         android:textColor="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvtext1" />
 
@@ -150,7 +154,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/tvnumcorrect"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/holo_purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,7 +164,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="75dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/hintlist">
 
     </ListView>
 

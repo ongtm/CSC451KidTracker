@@ -29,5 +29,6 @@
     <string name="menu_score_summary">Score Summary</string>
     <string name="menu_about">About</string>
     <string name="tvlabellevel">Please select a level</string>
+    <string name="delete_scores">Delete score</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.tong.csc451kidtracker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +8,20 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class ProblemsActivity extends AppCompatActivity {
+    private boolean hintsVisible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,25 @@ public class ProblemsActivity extends AppCompatActivity {
 
         textViewTT = findViewById(R.id.testtype);
         textViewTT.setVisibility(View.GONE);
+
+        //Hint List items
+        ListView listViewHints;
+        listViewHints = findViewById(R.id.hintlist);
+        String [] hintValues = new String []{"1","2","3","4"};
+
+        ArrayList<String> arrayHint = new ArrayList<String>();
+
+        for(int i = 0; i < hintValues.length; i++){
+            arrayHint.add(hintValues[i]);
+        }
+
+        final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1, Arrays.asList(hintValues));
+
+        listViewHints.setAdapter(adapter);
+
+        /************************************************************* */
+        listViewHints.setVisibility(View.GONE);
+        hintsVisible = false;
 
     }
 
@@ -110,6 +138,15 @@ public class ProblemsActivity extends AppCompatActivity {
 
     public void onClickHint(View view){
         Toast.makeText(this,"Hints not available at this time",Toast.LENGTH_LONG).show();
+        ListView listViewHints;
+        listViewHints = findViewById(R.id.hintlist);
+
+        if(hintsVisible = false){
+            listViewHints.setVisibility(View.VISIBLE);
+        }
+        else{
+            listViewHints.setVisibility(View.GONE);
+        }
     }
 
     public void onClickNextQuestion(View view){
@@ -130,4 +167,28 @@ public class ProblemsActivity extends AppCompatActivity {
 
         textViewCAT.setVisibility(View.GONE);*/
     }
+
+    private class StableArrayAdapter extends ArrayAdapter<String> {
+        HashMap<String, Integer> mIDMap = new HashMap<String, Integer>();
+        public StableArrayAdapter(Context context, int textViewResourceId, List<String>objects){
+            super(context,textViewResourceId, objects);
+            for(int i = 0; i< objects.size();i++){
+                mIDMap.put(objects.get(i),i);
+            }
+        }
+
+        @Override
+        public long getItemId(int position){
+            String item = getItem(position);
+            return mIDMap.get(item);
+        }
+
+        @Override
+        public boolean hasStableIds(){
+            return true;
+        }
+
+    }
+
+
 }
