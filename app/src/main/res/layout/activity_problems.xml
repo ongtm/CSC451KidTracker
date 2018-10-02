@@ -40,6 +40,7 @@
     <EditText
         android:id="@+id/etresult"
         style="@style/my_textStyle1"
+        android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -48,9 +49,33 @@
         android:hint="@string/enter_your_answer"
         android:inputType="number"
         android:text="@string/result"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnum2" />
+
+    <TextView
+        android:id="@+id/tvcorrectanswer"
+        style="@style/my_textStyle1"
+        android:layout_marginBottom="35dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/tvcorrectanswer"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/bnt_get_hint"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvcorrectanswertext"
+        style="@style/my_textStyle1"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tvcorrectanswertext"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etresult" />
 
     <Button
         android:id="@+id/bnt_checkanswer"
@@ -59,7 +84,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         style="@style/myButtonStyle"
-        android:drawableStart="@drawable/ic_baseline_check_circle_24px"/>
+        android:drawableStart="@drawable/ic_baseline_check_circle_24px"
+        android:onClick="onClickCheckAnswer"/>
 
     <Button
         android:id="@+id/bnt_get_hint"
@@ -68,15 +94,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         style="@style/myButtonStyle"
-        android:drawableStart="@drawable/ic_lightbulb_on"/>
+        android:drawableStart="@drawable/ic_lightbulb_on"
+        android:onClick="onClickHint"/>
+
+    <Button
+        android:id="@+id/bnt_next_question"
+        style="@style/myButtonStyle"
+        android:layout_width="50dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/ic_arrow_right_box"
+        android:onClick="onClickNextQuestion"
+        android:text="@string/next_question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvcorrect"
+        android:id="@+id/tvnumcorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/tvcorrect"
+        android:text="@string/tvnumcorrect"
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +130,7 @@
         android:text="@string/tvtext1"
         android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvcorrect" />
+        app:layout_constraintTop_toBottomOf="@+id/tvnumcorrect" />
 
     <TextView
         android:id="@+id/tvtotalpossible"
@@ -103,12 +143,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvtext1" />
 
+    <TextView
+        android:id="@+id/testtype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvnumcorrect"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:layout_width="50dp"
         android:layout_height="300dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="75dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </ListView>

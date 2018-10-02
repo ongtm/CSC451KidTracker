@@ -35,6 +35,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
     DataSource mDataSource;
+    public int levelSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Assign Spinners objects by ID
         Spinner spinnerAdd = findViewById(R.id.spinneradd);
-        Spinner spinnerSub = findViewById(R.id.spinnersub);
+        /*Spinner spinnerSub = findViewById(R.id.spinnersub);
         Spinner spinnerMul = findViewById(R.id.spinnermul);
-        Spinner spinnerDiv = findViewById(R.id.spinnerdiv);
+        Spinner spinnerDiv = findViewById(R.id.spinnerdiv);*/
 
         //Creating array to hold items for spinner
         ArrayList<Integer> mathLevels = new ArrayList<Integer>();
@@ -63,34 +64,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,mathLevels);
 
         //Set on Click listener for spinner
-/*        spinnerAdd.setOnItemSelectedListener(this);
-        spinnerSub.setOnItemSelectedListener(this);
+        spinnerAdd.setOnItemSelectedListener(this);
+        /*spinnerSub.setOnItemSelectedListener(this);
         spinnerMul.setOnItemSelectedListener(this);
         spinnerDiv.setOnItemSelectedListener(this);*/
 
         //attaching adapter to the spinner
         spinnerAdd.setAdapter(spinnerAdapter);
-        spinnerSub.setAdapter(spinnerAdapter);
+        /*spinnerSub.setAdapter(spinnerAdapter);
         spinnerMul.setAdapter(spinnerAdapter);
-        spinnerDiv.setAdapter(spinnerAdapter);
+        spinnerDiv.setAdapter(spinnerAdapter);*/
 
         //setting onClickListeners for each imagebutton on activity
         ImageButton add1 = findViewById(R.id.imgadd1);
             add1.setOnClickListener(this);
-        ImageButton add2 = findViewById(R.id.imgadd2);
-            add2.setOnClickListener(this);
+        /*ImageButton add2 = findViewById(R.id.imgadd2);
+            add2.setOnClickListener(this);*/
         ImageButton sub1 = findViewById(R.id.imgsub1);
             sub1.setOnClickListener(this);
-        ImageButton sub2 = findViewById(R.id.imgsub2);
-            sub2.setOnClickListener(this);
+        /*ImageButton sub2 = findViewById(R.id.imgsub2);
+            sub2.setOnClickListener(this);*/
         ImageButton mul1 = findViewById(R.id.imgmul1);
             mul1.setOnClickListener(this);
-        ImageButton mul2 = findViewById(R.id.imgmul2);
-            mul2.setOnClickListener(this);
+        /*ImageButton mul2 = findViewById(R.id.imgmul2);
+            mul2.setOnClickListener(this);*/
         ImageButton div1 = findViewById(R.id.imgdiv1);
             div1.setOnClickListener(this);
-        ImageButton div2 = findViewById(R.id.imgdiv2);
-            div2.setOnClickListener(this);
+        /*ImageButton div2 = findViewById(R.id.imgdiv2);
+            div2.setOnClickListener(this);*/
     }
 
     /*@Override
@@ -106,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //This may be the correct form
         //String item = parent.getItemAtPosition(position).toString();
 
-        //Displaying level for now--implement selection of questions from array later
-        Toast.makeText(parent.getContext(), "Level Selected " + item, Toast.LENGTH_LONG).show();
+        //Setting level
+        levelSelected= item;
     }
 
 
@@ -125,29 +126,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Setting Intention Extra
         switch (view.getId()){
             case R.id.imgadd1:
-                thisIntent.putExtra("val1","imgadd1");
+                thisIntent.putExtra("val1","imgadd1" + levelSelected);
                 break;
-            case R.id.imgadd2:
+     /*       case R.id.imgadd2:
                 thisIntent.putExtra("val1","imgadd2");
-                break;
+                break;*/
             case R.id.imgsub1:
-                thisIntent.putExtra("val1","imgsub1");
+                thisIntent.putExtra("val1","imgsub1" + levelSelected);
                 break;
-            case R.id.imgsub2:
+            /*case R.id.imgsub2:
                 thisIntent.putExtra("val1","imgsub2");
-                break;
+                break;*/
             case R.id.imgmul1:
-                thisIntent.putExtra("val1","imgmul1");
+                thisIntent.putExtra("val1","imgmul1" + levelSelected);
                 break;
-            case R.id.imgmul2:
+            /*case R.id.imgmul2:
                 thisIntent.putExtra("val1","imgmul2");
-                break;
+                break;*/
             case R.id.imgdiv1:
-                thisIntent.putExtra("val1","imgdiv1");
+                thisIntent.putExtra("val1","imgdiv1"+levelSelected);
                 break;
-            case R.id.imgdiv2:
+            /*case R.id.imgdiv2:
                 thisIntent.putExtra("val1","imgdiv2");
-                break;
+                break;*/
 
         }
 

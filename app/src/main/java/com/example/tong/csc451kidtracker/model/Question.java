@@ -12,13 +12,14 @@ public class Question {
     private int num2;
     private int result;
     private String oper;
+    private int level;
 
     //No argument Constructor
     public Question(){
 
     }
 
-    public Question(String questionId, int num1, int num2, int result, String oper){
+    public Question(String questionId, int num1, int num2, int result, String oper, int level){
 
         if(questionId == null){
             questionId = UUID.randomUUID().toString();
@@ -28,6 +29,7 @@ public class Question {
         this.num2=num2;
         this.result = result;
         this.oper = oper;
+        this.level = level;
         }
     public int getNum1() {
         return num1;
@@ -68,7 +70,9 @@ public class Question {
         this.oper = oper;
     }
 
+    public void setLevel(int level) { this.level = level;}
 
+    public int getLevel(){return level;}
 
     public ContentValues toQValues(){
         ContentValues qValues = new ContentValues(5);
@@ -78,6 +82,7 @@ public class Question {
         qValues.put(ItemsTable.QUESTION_NUM2, num2);
         qValues.put(ItemsTable.QUESTION_OPER, oper);
         qValues.put(ItemsTable.QUESTION_RESULT, result);
+        qValues.put(ItemsTable.QUESTION_LEVEL, level);
 
         return qValues;
     }
@@ -86,10 +91,11 @@ public class Question {
     public String toString() {
         return "Question{" +
                 "questionId='" + questionId + '\'' +
-                ", num1=" + num1 +
-                ", num2=" + num2 +
-                ", result=" + result +
+                ", num1=" + num1 + '\'' +
+                ", num2=" + num2 + '\'' +
+                ", result=" + result + '\'' +
                 ", oper='" + oper + '\'' +
+                ", level=" + level + '\'' +
                 '}';
     }
 }

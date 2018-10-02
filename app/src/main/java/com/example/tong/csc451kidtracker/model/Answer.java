@@ -89,7 +89,7 @@ public class Answer {
         return "Answer{" +
                 "answerId='" + answerId + '\'' +
                 ", questionId='" + questionId + '\'' +
-                ", answerEntered=" + answerEntered +
+                ", answerEntered=" + answerEntered + '\'' +
                 ", correctIncorrect='" + correctIncorrect + '\'' +
                 ", testId='" + testId + '\'' +
                 '}';

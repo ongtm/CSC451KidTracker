@@ -2,6 +2,8 @@ package com.example.tong.csc451kidtracker.database;
 
 import android.preference.PreferenceFragment;
 
+import com.example.tong.csc451kidtracker.MainActivity;
+
 public class ItemsTable {
 
     public static final String QUESTIONS = "questions";
@@ -10,6 +12,7 @@ public class ItemsTable {
     public static final String QUESTION_NUM2 = "num2";
     public static final String QUESTION_OPER = "oper";
     public static final String QUESTION_RESULT = "result";
+    public static final String QUESTION_LEVEL = "level";
 
 
     public static final String SQL_CREATE_QUESTIONS =
@@ -18,7 +21,8 @@ public class ItemsTable {
                     QUESTION_NUM1 + " INTEGER," +
                     QUESTION_NUM2 + " INTEGER," +
                     QUESTION_OPER + " TEXT," +
-                    QUESTION_RESULT + " INTEGER" + ");";
+                    QUESTION_RESULT + " INTEGER," +
+                    QUESTION_LEVEL + " INTEGER" + ");";
 
     public static final String SQL_DELETE_QUESTIONS =
             "DROP TABLE " + QUESTIONS;
@@ -46,15 +50,19 @@ public class ItemsTable {
     public static final String TESTS_NUMOFQUESTIONS = "numOfQuestions";
     public static final String TESTS_NUMCORRECT = "numCorrect";
     public static final String TESTS_NUMINCORRECT = "numIncorrect";
+    public static final String TESTS_TESTDATE= "testDate";
 
     public static final String SQL_CREATE_TESTS =
         "CREATE TABLE " + TESTS + "(" +
                 TESTS_ID + " TEXT PRIMARY KEY," +
                 TESTS_NUMOFQUESTIONS + " INTEGER," +
                 TESTS_NUMCORRECT + " INTEGER," +
-                TESTS_NUMINCORRECT + " INTEGER" + ");" ;
+                TESTS_NUMINCORRECT + " INTEGER" +
+                TESTS_TESTDATE + " TEXT" + ");" ;
 
     public static final String SQL_DELETE_TESTS =
             "DROP TABLE " + TESTS;
+
+
 
 }

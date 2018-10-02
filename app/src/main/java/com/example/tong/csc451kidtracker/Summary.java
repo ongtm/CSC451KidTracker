@@ -13,9 +13,14 @@ import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 import java.util.List;
 import com.example.tong.csc451kidtracker.model.Test;
+import com.example.tong.csc451kidtracker.model.TestDataSample;
 
 
 public class Summary extends AppCompatActivity {
+
+    //List Objects
+    List<Test> test  = TestDataSample.testList;
+
     //Recycler view objects
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -28,7 +33,9 @@ public class Summary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_summary);
 
-        MyAdapter adapter = new MyAdapter(this,)
+
+
+        MyAdapter adapter = new MyAdapter(this,test);
 
         //Recycler View
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -40,9 +47,9 @@ public class Summary extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new MyAdapter(myDataset);
+        //mAdapter = new MyAdapter(myDataset);
 
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(adapter);
 
 
     }

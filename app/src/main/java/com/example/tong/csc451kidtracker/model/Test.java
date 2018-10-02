@@ -40,9 +40,7 @@ public class Test {
         return testId;
     }
 
-    public void setTestId(String testId) {
-        this.testId = testId;
-    }
+
 
     public int getNumQuestions() {
         return numQuestions;
@@ -78,6 +76,7 @@ public class Test {
         tValues.put(ItemsTable.TESTS_NUMOFQUESTIONS,numQuestions);
         tValues.put(ItemsTable.TESTS_NUMCORRECT,numCorrect);
         tValues.put(ItemsTable.TESTS_NUMINCORRECT,numIncorrect);
+        tValues.put(ItemsTable.TESTS_TESTDATE,testDate);
 
         return tValues;
     }
@@ -89,6 +88,7 @@ public class Test {
                 ", numQuestions=" + numQuestions +
                 ", numCorrect=" + numCorrect +
                 ", numIncorrect=" + numIncorrect +
+                ", testDate=" + testDate +
                 '}';
     }
 }

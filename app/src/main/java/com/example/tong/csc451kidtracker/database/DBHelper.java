@@ -1,6 +1,7 @@
 package com.example.tong.csc451kidtracker.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -33,4 +34,10 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
+    /*Public Cursor getQuestions(int level, String oper, SQLiteDatabase db){
+        String[] projections = (ItemsTable.QUESTIONS.QUESTION_ID);
+
+        return thisCursor;
+    }*/
 }

@@ -26,13 +26,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public TextView numQuestions;
         public TextView numCorrect;
         public TextView numIncorrect;
+        public TextView testId;
 
         public MyViewHolder(View testView){
             super(testView);
+
             testDate = testView.findViewById(R.id.testDate);
             numQuestions = testView.findViewById(R.id.numQuestions);
             numCorrect = testView.findViewById(R.id.numCorrect);
             numIncorrect = testView.findViewById(R.id.numIncorrect);
+            testId = testView.findViewById(R.id.testId);
         }
     }
 
@@ -52,12 +55,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position){
+
         Test myTest = mTest.get(position);
 
-            holder.testDate.setText(myTest.getTestDate());
-            holder.numQuestions.setText(myTest.getNumQuestions());
-            holder.numCorrect.setText(myTest.getNumCorrect());
-            holder.numIncorrect.setText(myTest.getNumIncorrect());
+        holder.testId.setText(myTest.getTestId());
+        holder.testDate.setText(myTest.getTestDate());
+        //holder.numQuestions.setText(myTest.getNumQuestions());
+        holder.numQuestions.setText(String.valueOf(myTest.getNumQuestions()));
+        holder.numCorrect.setText(String.valueOf(myTest.getNumCorrect()));
+        holder.numIncorrect.setText(String.valueOf(myTest.getNumIncorrect()));
 
     }
 
