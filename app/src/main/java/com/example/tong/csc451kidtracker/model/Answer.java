@@ -75,11 +75,11 @@ public class Answer {
     public ContentValues toAValues(){
         ContentValues aValues = new ContentValues(5);
 
-        aValues.put(ItemsTable.ANSWERS_ID, answerId);
-        aValues.put(ItemsTable.ANSWERS_ENTERED, answerEntered);
-        aValues.put(ItemsTable.ANSWERS_CORRECTINCORRECT, correctIncorrect);
-        aValues.put(ItemsTable.ANSWERS_TESTID, testId);
-        aValues.put(ItemsTable.ANSWERS_QUESTIONID, questionId);
+        aValues.put(ItemsTable.COLUMN_ANSWERS_ID, answerId);
+        aValues.put(ItemsTable.COLUMN_ANSWERS_ENTERED, answerEntered);
+        aValues.put(ItemsTable.COLUMN_ANSWERS_CORRECTINCORRECT, correctIncorrect);
+        aValues.put(ItemsTable.COLUMN_ANSWERS_TESTID, testId);
+        aValues.put(ItemsTable.COLUMN_ANSWERS_QUESTIONID, questionId);
 
         return aValues;
     }

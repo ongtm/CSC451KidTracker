@@ -13,23 +13,33 @@ public class Question {
     private int result;
     private String oper;
     private int level;
+    private String testName;
 
     //No argument Constructor
     public Question(){
 
     }
 
-    public Question(String questionId, int num1, int num2, int result, String oper, int level){
+    public Question( int num1, int num2, int result, String oper, int level, String testName){
 
-        if(questionId == null){
-            questionId = UUID.randomUUID().toString();
-        }
+        questionId = UUID.randomUUID().toString();
+this.questionId = questionId;
+        this.num1 = num1;
+        this.num2=num2;
+        this.result = result;
+        this.oper = oper;
+        this.level = level;
+        this.testName = testName;
+    }
+    public Question(String questionId, int num1, int num2, int result, String oper, int level, String testName){
+
         this.questionId = questionId;
         this.num1 = num1;
         this.num2=num2;
         this.result = result;
         this.oper = oper;
         this.level = level;
+        this.testName = testName;
         }
     public int getNum1() {
         return num1;
@@ -74,15 +84,20 @@ public class Question {
 
     public int getLevel(){return level;}
 
+    public void setTestName (String testName){this.testName = testName;}
+
+    public String getTestName(){return testName;}
+
     public ContentValues toQValues(){
         ContentValues qValues = new ContentValues(5);
 
-        qValues.put(ItemsTable.QUESTION_ID,questionId);
-        qValues.put(ItemsTable.QUESTION_NUM1, num1);
-        qValues.put(ItemsTable.QUESTION_NUM2, num2);
-        qValues.put(ItemsTable.QUESTION_OPER, oper);
-        qValues.put(ItemsTable.QUESTION_RESULT, result);
-        qValues.put(ItemsTable.QUESTION_LEVEL, level);
+        qValues.put(ItemsTable.COLUMN_QUESTION_ID,questionId);
+        qValues.put(ItemsTable.COLUMN_QUESTION_NUM1, num1);
+        qValues.put(ItemsTable.COLUMN_QUESTION_NUM2, num2);
+        qValues.put(ItemsTable.COLUMN_QUESTION_OPER, oper);
+        qValues.put(ItemsTable.COLUMN_QUESTION_RESULT, result);
+        qValues.put(ItemsTable.COLUMN_QUESTION_LEVEL, level);
+        qValues.put(ItemsTable.COLUMN_QUESTION_TESTNAME,testName);
 
         return qValues;
     }
@@ -96,6 +111,7 @@ public class Question {
                 ", result=" + result + '\'' +
                 ", oper='" + oper + '\'' +
                 ", level=" + level + '\'' +
+                ", testName-" + testName + '\'' +
                 '}';
     }
 }

@@ -40,8 +40,6 @@ public class Test {
         return testId;
     }
 
-
-
     public int getNumQuestions() {
         return numQuestions;
     }
@@ -72,11 +70,11 @@ public class Test {
     public ContentValues toTValues(){
         ContentValues tValues = new ContentValues(4);
 
-        tValues.put(ItemsTable.TESTS_ID,testId);
-        tValues.put(ItemsTable.TESTS_NUMOFQUESTIONS,numQuestions);
-        tValues.put(ItemsTable.TESTS_NUMCORRECT,numCorrect);
-        tValues.put(ItemsTable.TESTS_NUMINCORRECT,numIncorrect);
-        tValues.put(ItemsTable.TESTS_TESTDATE,testDate);
+        tValues.put(ItemsTable.COLUMN_TESTS_ID,testId);
+        tValues.put(ItemsTable.COLUMN_TESTS_NUMOFQUESTIONS,numQuestions);
+        tValues.put(ItemsTable.COLUMN_TESTS_NUMCORRECT,numCorrect);
+        tValues.put(ItemsTable.COLUMN_TESTS_NUMINCORRECT,numIncorrect);
+        tValues.put(ItemsTable.COLUMN_TESTS_TESTDATE,testDate);
 
         return tValues;
     }

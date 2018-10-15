@@ -2,6 +2,9 @@ package com.example.tong.csc451kidtracker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +16,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tong.csc451kidtracker.database.DBHelper;
+import com.example.tong.csc451kidtracker.database.DataSource;
+import com.example.tong.csc451kidtracker.database.ItemsTable;
+import com.example.tong.csc451kidtracker.model.Question;
+import com.example.tong.csc451kidtracker.model.QuestionSampleData;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -22,18 +31,44 @@ import java.util.List;
 
 public class ProblemsActivity extends AppCompatActivity {
     private boolean hintsVisible;
+    private int aQuestion;
+    private int mCurrentQuestion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problems);
 
+
+
         //This is to test the key/value pair coming over from the MainActivity
-        String getVal = getIntent().getStringExtra("val1");
+        String getVal = getIntent().getStringExtra("OPER_LEVEL");
         TextView tv =(TextView) findViewById(R.id.testtype);
         tv.setText(getVal);
-        Toast.makeText(this,"You are taking a test for " + getVal,Toast.LENGTH_LONG).show();
+
         //pull sqlite data here
+
+        DBHelper dbHelper = new DBHelper(this);
+
+        List<Question> mQuestionBank = new ArrayList<Question>();
+        mQuestionBank=dbHelper.getSelectedQuestions(getVal);
+
+        Toast.makeText(this, "You are taking test " + getVal + " With " + mQuestionBank.size() + " questions",Toast.LENGTH_LONG).show();
+
+         /*aQuestion = 0;
+
+        TextView textViewNum1 = new TextView(this);
+        TextView textViewNum2 = new TextView(this);
+        TextView textViewOper = new TextView(this);
+
+        Question q = new Question();
+        q=mQuestionBank.get(thisQuestion);
+
+        textViewNum1.setText(q.getNum1());
+        textViewNum2.setText(q.getNum2());
+        textViewOper.setText(q.getOper());*/
+
 
         //hide tvCorrectAnswer
         TextView textViewCA;
@@ -191,6 +226,5 @@ public class ProblemsActivity extends AppCompatActivity {
         }
 
     }
-
 
 }
