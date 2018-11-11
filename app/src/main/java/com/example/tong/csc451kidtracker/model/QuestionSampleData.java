@@ -18,7 +18,7 @@ public class QuestionSampleData {
         addQuestion(new Question(null, 1,2,3,"+",1,"addone"));
         addQuestion(new Question(null, 1,3,4,"+",1,"addone"));
         addQuestion(new Question(null, 1,4,5,"+",1,"addone"));
-        addQuestion(new Question(null, 1,5,6,"+",1,"addone"));
+//        addQuestion(new Question(null, 1,5,6,"+",1,"addone"));
 
         addQuestion(new Question(null, 10,11,21,"+",2,"addtwo"));
         addQuestion(new Question(null, 10,12,22,"+",2,"addtwo"));
@@ -28,7 +28,7 @@ public class QuestionSampleData {
 
         addQuestion(new Question(null, 100,101,201,"+",3,"addthree"));
         addQuestion(new Question(null, 100,102,202,"+",3,"addthree"));
-        addQuestion(new Question(null, 100,103,203,"+",3,"adaddthreed_3"));
+        addQuestion(new Question(null, 100,103,203,"+",3,"addthee"));
         addQuestion(new Question(null, 100,104,204,"+",3,"addthree"));
         addQuestion(new Question(null, 100,105,205,"+",3,"addthree"));
 
